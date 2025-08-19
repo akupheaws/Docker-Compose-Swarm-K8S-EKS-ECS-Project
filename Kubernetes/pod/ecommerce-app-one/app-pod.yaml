@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ecommerce-app
+  labels:
+    app: ecommerce
+spec:
+  containers:
+    - name: ecommerce-container
+      image: awanmbandi/modelgadgets-ecom-webapp:latest
+      ports:
+        - containerPort: 80
+

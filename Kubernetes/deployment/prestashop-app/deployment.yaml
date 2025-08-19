@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prestashop
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prestashop
+  template:
+    metadata:
+      labels:
+        app: prestashop
+    spec:
+      containers:
+      - name: prestashop
+        image: prestashop/prestashop:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name: DB_SERVER
+          value: "mysql-service"
